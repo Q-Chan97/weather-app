@@ -58,3 +58,8 @@ body {
     border: none;
     background-color: orange;
  }
+
+ #search-button:hover {
+    cursor: pointer;
+    filter: brightness(115%)
+ }
