@@ -1,3 +1,5 @@
 # project-template
 
-_IMPORTANT_ UPDATE ESLINT WHEN YOU GET TO USING REACT FRAMEWORK
+Weather images created by Google
+
+Gelion font designed by Deni Anggara
