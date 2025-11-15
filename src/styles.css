@@ -15,14 +15,13 @@
 
 body {
     background: linear-gradient(rgb(38, 153, 241), rgb(195, 214, 226) 70%);
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
 }
 
 #page-container {
     border: 1px solid red;
-    height: 100vh;
-    width: 100vw;
+    width: 90%;
+    margin: 0 auto;
 }
 
 /* Nav Bar */
@@ -70,4 +69,75 @@ body {
  #search-button:hover {
     cursor: pointer;
     filter: brightness(115%)
+ }
+
+ /* Main Page Content */
+
+ #main-info {
+    border: 1px solid navy;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: inherit;
+ }
+
+ #forecast-container{
+    border: 1px solid fuchsia;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 145px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+ }
+
+ #forecast-info {
+    border: 1px solid aqua;
+    background-color: rgba(47, 108, 162, 0.303);
+    color: white;
+    width: 300px;
+    padding: 15px;
+    border-radius: 15px;
+ }
+
+ #current-conditions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+ }
+
+
+ #forecast-info h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 0;
+ }
+
+ #forecast-info h3 {
+    font-size: 1.7rem;
+    margin-top: 0;
+    margin-bottom: 0;
+ }
+
+ #forecast-info p {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+ }
+
+ #forecast-image-main {
+    width: 200px;
+ }
+
+ #side-container {
+    border: 1px solid lawngreen;
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / 3;
+    grid-row: 1 / 4;
  }
