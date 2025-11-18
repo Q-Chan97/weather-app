@@ -1,11 +1,9 @@
-import { searchLocation } from "./api";
+import { updatePage } from "./weatherUI";
 
 export function runSearch() {
     const searchButton = document.getElementById("search-button");
-    const searchBar = document.getElementById("search-bar");
 
     searchButton.addEventListener("click", () => {
-        searchLocation(); 
-        searchBar.value = ""; // Clear value in search bar
+        updatePage();
     })
 }
