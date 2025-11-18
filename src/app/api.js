@@ -7,12 +7,12 @@ export async function getLocation(locationTerm) {
         let response = await fetch(`${baseURL}${locationTerm}?unitGroup=${unitGroup}&key=${API_KEY}`);
         let locationData = await response.json();
         console.log(locationData);
+
+        const conditions = locationData.currentConditions.conditions;
+        console.log(`Should be the first ${conditions}`);
+
+        return conditions;
     } catch(err) {
         console.log(err);
     }
-}
-
-export async function searchLocation() {
-    const searchTerm = document.getElementById("search-bar").value;
-    getLocation(searchTerm);
 }
