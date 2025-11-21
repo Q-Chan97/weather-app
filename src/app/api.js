@@ -13,12 +13,18 @@ export async function getLocation(locationTerm) {
         const currentTemp = Math.round(locationData.currentConditions.temp);
         const conditions = locationData.currentConditions.conditions;
         const icon = locationData.currentConditions.icon;
+        const dateTime = locationData.currentConditions.datetime;
+        const sunrise = locationData.currentConditions.sunrise;
+        const sunset = locationData.currentConditions.sunset;
 
         return {
             location,
             currentTemp,
             conditions,
             icon,
+            dateTime,
+            sunrise,
+            sunset,
         };
     } catch(err) {
         console.log(err);
