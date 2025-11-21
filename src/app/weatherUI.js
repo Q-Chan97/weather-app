@@ -11,6 +11,7 @@ export async function updatePage() {
     searchBar.value = ""; // Resets search field
 
     updateCurrentConditions();
+    updateBackground();
 }
 
 function updateCurrentConditions() {
@@ -29,4 +30,24 @@ function updateCurrentConditions() {
 function capitalizeLocation(string) {
     // Splits string by spaces, capitalizes first character, then slices rest of string back in
     return string.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+}
+
+function updateBackground() {
+    let time = sliceTime(weatherData.dateTime);
+    let sunrise = sliceTime(weatherData.sunrise);
+    let sunset = sliceTime(weatherData.sunset);
+    console.log(time);
+    console.log(sunrise);
+    console.log(sunset);
+    if (time < sunrise || time > sunset) {
+        document.body.style.background = "linear-gradient(rgb(25, 39, 78), rgb(35, 25, 84) 95%)";
+        console.log("It's night.");
+    } else {
+        document.body.style.background = "linear-gradient(rgb(38, 153, 241), rgb(195, 214, 226) 70%)";
+        console.log("It's day.");
+    }
+}
+
+function sliceTime(data) {
+    return data.slice(0, 5).replace(":", "")
 }
