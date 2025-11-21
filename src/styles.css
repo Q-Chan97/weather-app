@@ -14,8 +14,8 @@
 }
 
 body {
-    background: linear-gradient(rgb(38, 153, 241), rgb(195, 214, 226) 70%);
-    min-height: 100vh;
+   background: linear-gradient(rgb(38, 153, 241), rgb(195, 214, 226) 70%);
+   min-height: 100vh;
 }
 
 #page-container {
