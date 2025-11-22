@@ -24,7 +24,6 @@ function updateCurrentConditions() {
     temperature.textContent = weatherData.currentTemp;
     conditions.textContent = weatherData.conditions;
     mainImg.src = iconMap[weatherData.icon];
-    console.log(weatherData.icon);
 }
 
 function capitalizeLocation(string) {
@@ -36,7 +35,7 @@ function updateBackground() {
     let time = sliceTime(weatherData.dateTime);
     let sunrise = sliceTime(weatherData.sunrise);
     let sunset = sliceTime(weatherData.sunset);
-    
+
     if (time < sunrise || time > sunset) {
         document.body.style.background = "linear-gradient(rgb(25, 39, 78), rgb(35, 25, 84) 95%)";
         console.log("It's night.");
