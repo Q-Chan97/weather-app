@@ -36,9 +36,7 @@ function updateBackground() {
     let time = sliceTime(weatherData.dateTime);
     let sunrise = sliceTime(weatherData.sunrise);
     let sunset = sliceTime(weatherData.sunset);
-    console.log(time);
-    console.log(sunrise);
-    console.log(sunset);
+    
     if (time < sunrise || time > sunset) {
         document.body.style.background = "linear-gradient(rgb(25, 39, 78), rgb(35, 25, 84) 95%)";
         console.log("It's night.");
