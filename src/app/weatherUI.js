@@ -23,7 +23,7 @@ function updateCurrentConditions() {
     const mainImg = document.getElementById("forecast-image-main");
     
     location.textContent = capitalizeLocation(weatherData.location);
-    temperature.textContent = weatherData.currentTemp;
+    temperature.textContent = weatherData.currentTemp + " °" + tempSymbol;
     conditions.textContent = weatherData.conditions;
     mainImg.src = iconMap[weatherData.icon];
 }
