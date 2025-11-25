@@ -2,6 +2,7 @@ import { getLocation } from "./api";
 import { iconMap } from "./weatherIcons";
 
 let weatherData;
+let tempSymbol = "F";
 const searchBar = document.getElementById("search-bar");
 
 export async function updatePage() {
@@ -12,6 +13,7 @@ export async function updatePage() {
 
     updateCurrentConditions();
     updateBackground();
+    updateHourlyForecast();
 }
 
 function updateCurrentConditions() {
@@ -47,4 +49,27 @@ function updateBackground() {
 
 function sliceTime(data) {
     return data.slice(0, 5).replace(":", "")
+}
+
+function updateHourlyForecast() {
+    let hourInfo = document.querySelectorAll(".hourly-info");
+
+    let hourly = [6, 9, 12, 15, 18, 21].map(i => weatherData.hours[i]); // Maps out indexes from array of all hours
+
+    hourly.forEach((hour, index) => {
+        const info = hourInfo[index]; // Gets each individual div
+
+        info.innerHTML = ""; // Clears info divs of content
+
+        // Appends info divs with new weather info from API request
+        const hourlyImage = document.createElement("img");
+        hourlyImage.src = iconMap[hour.icon]; 
+        hourlyImage.alt = "Hourly forecast image";
+        hourlyImage.classList.add("hourly-image");
+        info.appendChild(hourlyImage);
+
+        const hourlyTemp = document.createElement("p");
+        hourlyTemp.textContent = Math.round(hour.temp) + " °" + tempSymbol;
+        info.appendChild(hourlyTemp);
+    });
 }
