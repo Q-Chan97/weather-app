@@ -96,7 +96,7 @@ body {
     border: 1px solid aqua;
     background-color: rgba(47, 108, 162, 0.303);
     color: white;
-    width: 300px;
+    width: 325px;
     padding: 15px;
     border-radius: 15px;
  }
@@ -139,7 +139,7 @@ body {
    display: flex;
    flex-direction: row;
    align-items: center;
-   justify-content: space-between;
+   justify-content: space-evenly;
    grid-row: 2 / 3;
    grid-column: 1 / 2;
  }
@@ -149,11 +149,18 @@ body {
    display: flex;
    flex-direction: column;
    align-items: center;
+   justify-content: center;
    background-color: rgba(47, 108, 162, 0.303);
    color: white;
    width: 150px;
    height: 175px;
    border-radius: 15px;
+ }
+
+ .hourly-info {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
  }
 
  .hourly-image {
