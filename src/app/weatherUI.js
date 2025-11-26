@@ -65,7 +65,7 @@ function updateHourlyForecast() {
         const hourlyImage = document.createElement("img");
         hourlyImage.src = iconMap[hour.icon]; 
         hourlyImage.alt = "Hourly forecast image";
-        hourlyImage.classList.add("hourly-image");
+        hourlyImage.classList.add("small-image");
         info.appendChild(hourlyImage);
 
         const hourlyTemp = document.createElement("p");
