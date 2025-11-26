@@ -163,7 +163,7 @@ body {
    align-items: center;
  }
 
- .hourly-image {
+ .small-image {
    width: 50px;
    height: 50px;
  }
@@ -172,6 +172,41 @@ body {
     border: 1px solid lawngreen;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     grid-column: 2 / 3;
     grid-row: 1 / 4;
+    gap: 5px;
  }
+
+#side-head {
+   background-color: rgba(47, 108, 162, 0.303);
+   width: 200px;
+   font-size: 1.2rem;
+   display: flex;
+   justify-content: center;
+   border-radius: 15px;
+   color: white;
+}
+
+#side-head h3 {
+   margin-top: 0;
+   margin-bottom: 0;
+}
+
+#side-body {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+}
+
+.outlook-container {
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   padding: 10px;
+   width: 400px;
+   color: white;
+   background-color: rgba(47, 108, 162, 0.303);
+   border-radius: 15px;
+}
