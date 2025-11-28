@@ -17,6 +17,7 @@ export async function getLocation(locationTerm) {
         const sunrise = locationData.currentConditions.sunrise;
         const sunset = locationData.currentConditions.sunset;
         const hours = locationData.days[0].hours;
+        const days = locationData.days;
 
         return {
             location,
@@ -27,6 +28,7 @@ export async function getLocation(locationTerm) {
             sunrise,
             sunset,
             hours,
+            days,
         };
     } catch(err) {
         console.log(err);
