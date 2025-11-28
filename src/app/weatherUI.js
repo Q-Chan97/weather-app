@@ -1,5 +1,6 @@
 import { getLocation } from "./api";
 import { iconMap } from "./weatherIcons";
+import { getDay } from "date-fns";
 
 let weatherData;
 let tempSymbol = "F";
@@ -14,6 +15,7 @@ export async function updatePage() {
     updateCurrentConditions();
     updateBackground();
     updateHourlyForecast();
+    updateOutlookForecast();
 }
 
 function updateCurrentConditions() {
@@ -71,5 +73,36 @@ function updateHourlyForecast() {
         const hourlyTemp = document.createElement("p");
         hourlyTemp.textContent = Math.round(hour.temp) + " °" + tempSymbol;
         info.appendChild(hourlyTemp);
+    });
+}
+
+function updateOutlookForecast() {
+    const outlookContainers = document.querySelectorAll(".outlook-container");
+
+    const days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => weatherData.days[i]);
+
+    const dayMap = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+    days.forEach((day, index) => {
+        const outlook = outlookContainers[index];
+        outlook.innerHTML = "";
+
+        // Map weekday name to indexes
+        const weekDayNumber = getDay(day.datetime);
+        let weekDayName;
+
+        if (index === 0) {
+            weekDayName = "Today";
+        } else {
+            weekDayName = dayMap[weekDayNumber];
+        }
+
+        console.log(weekDayName);
+        console.log(day.datetime);
+
+        // Append info
+        const dayOfWeek = document.createElement("p");
+        dayOfWeek.textContent = weekDayName;
+        outlook.appendChild(dayOfWeek);
     });
 }
