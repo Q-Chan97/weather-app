@@ -105,6 +105,11 @@ function updateOutlookForecast() {
         const dayOfWeek = document.createElement("p");
         dayOfWeek.textContent = weekDayName;
         outlook.appendChild(dayOfWeek);
+
+        const outlookImg = document.createElement("img");
+        outlookImg.src = iconMap[day.icon];
+        outlookImg.classList.add("small-image");
+        outlook.appendChild(outlookImg);
     });
 }
 
