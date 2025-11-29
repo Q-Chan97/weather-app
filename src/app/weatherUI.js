@@ -97,9 +97,6 @@ function updateOutlookForecast() {
             weekDayName = dayMap[weekDayNumber];
         }
 
-        console.log(weekDayName);
-        console.log(day.datetime);
-
         // Append info
         const dateOfWeek = document.createElement("p");
         dateOfWeek.textContent = sliceDate(day.datetime);
