@@ -101,8 +101,16 @@ function updateOutlookForecast() {
         console.log(day.datetime);
 
         // Append info
+        const dateOfWeek = document.createElement("p");
+        dateOfWeek.textContent = sliceDate(day.datetime);
+        outlook.appendChild(dateOfWeek);
+
         const dayOfWeek = document.createElement("p");
         dayOfWeek.textContent = weekDayName;
         outlook.appendChild(dayOfWeek);
     });
+}
+
+function sliceDate(data) {
+    return data.slice(5, 10).replace("-", "/");
 }
