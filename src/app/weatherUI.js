@@ -1,6 +1,6 @@
 import { getLocation } from "./api";
 import { iconMap } from "./weatherIcons";
-import { getDay } from "date-fns";
+import { parseISO, getDay } from "date-fns";
 
 let weatherData;
 let tempSymbol = "F";
@@ -79,7 +79,7 @@ function updateHourlyForecast() {
 function updateOutlookForecast() {
     const outlookContainers = document.querySelectorAll(".outlook-container");
 
-    const days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => weatherData.days[i]);
+    const days = weatherData.days.slice(0, 10); // Easier to read than map
 
     const dayMap = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
@@ -88,7 +88,8 @@ function updateOutlookForecast() {
         outlook.innerHTML = "";
 
         // Map weekday name to indexes
-        const weekDayNumber = getDay(day.datetime);
+        const dateObj = parseISO(day.datetime); // Parses date in local time zone, returns a Date
+        const weekDayNumber = getDay(dateObj); // Gets day of week number from parsed local time zone Date
         let weekDayName;
 
         if (index === 0) {
