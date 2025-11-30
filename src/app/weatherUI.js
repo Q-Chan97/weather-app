@@ -111,6 +111,10 @@ function updateOutlookForecast() {
         outlookImg.src = iconMap[day.icon];
         outlookImg.classList.add("small-image");
         outlook.appendChild(outlookImg);
+
+        const outlookHigh = document.createElement("p");
+        outlookHigh.textContent = Math.round(day.tempmax) + "°/" + Math.round(day.tempmin) + "°";
+        outlook.appendChild(outlookHigh);
     });
 }
 
