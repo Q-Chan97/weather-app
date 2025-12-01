@@ -33,6 +33,12 @@ body {
     align-items: center;
 }
 
+#navbar {
+   display: flex;
+   flex-direction: row;
+   gap: 50px;
+}
+
 #search-div {
     border: 1px solid blue;
     display: flex;
@@ -69,6 +75,20 @@ body {
  #search-button:hover {
     cursor: pointer;
     filter: brightness(115%)
+ }
+
+ #temp-switch-button {
+   width: 50px;
+   height: inherit;
+   border: 1px solid gray;
+   font-size: 1.2rem;
+   border-radius: 15px;
+ }
+
+ #temp-switch-button:hover {
+   color: white;
+   background-color: black;
+   cursor: pointer;
  }
 
  /* Main Page Content */
