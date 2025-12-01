@@ -16,6 +16,7 @@ export async function updatePage() {
     updateBackground();
     updateHourlyForecast();
     updateOutlookForecast();
+    updateTodaysConditions();
 }
 
 function updateCurrentConditions() {
@@ -120,4 +121,11 @@ function updateOutlookForecast() {
 
 function sliceDate(data) {
     return data.slice(5, 10).replace("-", "/");
+}
+
+function updateTodaysConditions() {
+    const humidityData = weatherData.humidity;
+
+    const humidityValueEl = document.querySelector("#humidity-info .info-bold-text"); // Finds correct p element inside id'd div
+    humidityValueEl.textContent = humidityData + "%"; // Updates p element with API info
 }
