@@ -4,6 +4,7 @@ import { parseISO, getDay } from "date-fns";
 
 let weatherData;
 let tempSymbol = "F";
+let windSymbol = "mph";
 const searchBar = document.getElementById("search-bar");
 
 export async function updatePage() {
@@ -125,7 +126,19 @@ function sliceDate(data) {
 
 function updateTodaysConditions() {
     const humidityData = weatherData.humidity;
+    const uvIndexData = weatherData.uvIndex;
+    const feelsLikeData = weatherData.feelsLike;
+    const windSpeedData = weatherData.windSpeed;
 
     const humidityValueEl = document.querySelector("#humidity-info .info-bold-text"); // Finds correct p element inside id'd div
     humidityValueEl.textContent = humidityData + "%"; // Updates p element with API info
+
+    const uvIndexValueEl = document.querySelector("#uv-index-info .info-bold-text");
+    uvIndexValueEl.textContent = uvIndexData;
+
+    const feelsLikeValueEl = document.querySelector("#feels-like-info .info-bold-text");
+    feelsLikeValueEl.textContent = feelsLikeData + ` °${tempSymbol}`;
+
+    const windSpeedValueEl = document.querySelector("#wind-speed-info .info-bold-text");
+    windSpeedValueEl.textContent = windSpeedData + ` ${windSymbol}`;
 }
