@@ -181,6 +181,7 @@ body {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
    grid-template-rows: repeat(2, 1fr);
+   gap: 30px;
 }
 
 .info-div {
@@ -213,6 +214,21 @@ body {
 #humidity-info {
    grid-column: 1 / 2;
    grid-row: 1 / 2;
+}
+
+#feels-like-info {
+   grid-column: 2 / 3;
+   grid-row: 1 / 2;
+}
+
+#uv-index-info {
+   grid-column: 1 / 2;
+   grid-row: 2 / 3;
+}
+
+#wind-speed-info {
+   grid-column: 2 / 3;
+   grid-row: 2 / 3;
 }
 
  #side-container {
