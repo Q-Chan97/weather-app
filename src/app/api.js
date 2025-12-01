@@ -18,6 +18,10 @@ export async function getLocation(locationTerm) {
         const sunset = locationData.currentConditions.sunset;
         const hours = locationData.days[0].hours;
         const days = locationData.days;
+        const uvIndex = locationData.currentConditions.uvindex;
+        const windSpeed = locationData.currentConditions.windspeed;
+        const feelsLike = Math.round(locationData.currentConditions.feelslike);
+        const humidity = Math.round(locationData.currentConditions.humidity);
 
         return {
             location,
@@ -29,6 +33,10 @@ export async function getLocation(locationTerm) {
             sunset,
             hours,
             days,
+            uvIndex,
+            windSpeed,
+            feelsLike,
+            humidity
         };
     } catch(err) {
         console.log(err);
