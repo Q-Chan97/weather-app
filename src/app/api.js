@@ -43,6 +43,6 @@ export async function getLocation(locationTerm) {
             humidity
         };
     } catch(err) {
-        console.log(err);
+        alert("Location not found. Please try searching again.");
     }
 }
