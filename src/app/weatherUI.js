@@ -2,12 +2,13 @@ import { getLocation } from "./api";
 import { iconMap } from "./weatherIcons";
 import { parseISO, getDay } from "date-fns";
 import { isMetric } from "./tempSwitch";
+import { currentSearch } from "./eventListeners";
 
 let weatherData;
 const searchBar = document.getElementById("search-bar");
 
 export async function updatePage() {
-    const searchTerm = searchBar.value;
+    const searchTerm = currentSearch; // updatePage now gets the term from the event listener, imported from eventListeners file
 
     weatherData = await getLocation(searchTerm); // Returns the promise from getLocation
     searchBar.value = ""; // Resets search field
@@ -147,5 +148,5 @@ function updateTodaysConditions() {
     feelsLikeValueEl.textContent = feelsLikeData + " °" +  getTempSymbol();
 
     const windSpeedValueEl = document.querySelector("#wind-speed-info .info-bold-text");
-    windSpeedValueEl.textContent = windSpeedData + getWindSymbol();
+    windSpeedValueEl.textContent = windSpeedData + " " + getWindSymbol();
 }
