@@ -1,10 +1,9 @@
 import { getLocation } from "./api";
 import { iconMap } from "./weatherIcons";
 import { parseISO, getDay } from "date-fns";
+import { isMetric } from "./tempSwitch";
 
 let weatherData;
-let tempSymbol = "F";
-let windSymbol = "mph";
 const searchBar = document.getElementById("search-bar");
 
 export async function updatePage() {
@@ -20,6 +19,14 @@ export async function updatePage() {
     updateTodaysConditions();
 }
 
+function getTempSymbol() { // Global variables weren't being re-read on switch, this lets functions get symbol when needed
+    return isMetric ? "C" : "F";
+}
+
+function getWindSymbol() {
+    return isMetric ? "kph" : "mph";
+}
+
 function updateCurrentConditions() {
     const location = document.getElementById("location");
     const temperature = document.getElementById("temperature");
@@ -27,7 +34,7 @@ function updateCurrentConditions() {
     const mainImg = document.getElementById("forecast-image-main");
     
     location.textContent = capitalizeLocation(weatherData.location);
-    temperature.textContent = weatherData.currentTemp + " °" + tempSymbol;
+    temperature.textContent = weatherData.currentTemp + " °" + getTempSymbol();
     conditions.textContent = weatherData.conditions;
     mainImg.src = iconMap[weatherData.icon];
 }
@@ -73,7 +80,7 @@ function updateHourlyForecast() {
         info.appendChild(hourlyImage);
 
         const hourlyTemp = document.createElement("p");
-        hourlyTemp.textContent = Math.round(hour.temp) + " °" + tempSymbol;
+        hourlyTemp.textContent = Math.round(hour.temp) + " °" + getTempSymbol();
         info.appendChild(hourlyTemp);
     });
 }
@@ -137,8 +144,8 @@ function updateTodaysConditions() {
     uvIndexValueEl.textContent = uvIndexData;
 
     const feelsLikeValueEl = document.querySelector("#feels-like-info .info-bold-text");
-    feelsLikeValueEl.textContent = feelsLikeData + ` °${tempSymbol}`;
+    feelsLikeValueEl.textContent = feelsLikeData + " °" +  getTempSymbol();
 
     const windSpeedValueEl = document.querySelector("#wind-speed-info .info-bold-text");
-    windSpeedValueEl.textContent = windSpeedData + ` ${windSymbol}`;
+    windSpeedValueEl.textContent = windSpeedData + getWindSymbol();
 }
