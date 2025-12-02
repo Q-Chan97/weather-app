@@ -19,7 +19,6 @@ body {
 }
 
 #page-container {
-    border: 1px solid red;
     width: 90%;
     margin: 0 auto;
 }
@@ -27,7 +26,6 @@ body {
 /* Nav Bar */
 
 #header {
-    border: 1px solid lime;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +38,6 @@ body {
 }
 
 #search-div {
-    border: 1px solid blue;
     display: flex;
     gap: 5px;
     align-items: center;
@@ -94,7 +91,6 @@ body {
  /* Main Page Content */
 
  #main-info {
-    border: 1px solid navy;
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -102,7 +98,6 @@ body {
  }
 
  #forecast-container{
-    border: 1px solid fuchsia;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -113,7 +108,6 @@ body {
  }
 
  #forecast-info {
-    border: 1px solid aqua;
     background-color: rgba(47, 108, 162, 0.303);
     color: white;
     width: 325px;
@@ -155,7 +149,6 @@ body {
  }
 
  #hourly-container {
-   border: 1px solid teal;
    display: flex;
    flex-direction: row;
    align-items: center;
@@ -165,7 +158,6 @@ body {
  }
 
  .hourly-card {
-   border: 1px solid red;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -252,7 +244,6 @@ body {
 }
 
  #side-container {
-    border: 1px solid lawngreen;
     display: flex;
     flex-direction: column;
     justify-content: center;
