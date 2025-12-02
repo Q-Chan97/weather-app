@@ -1,9 +1,13 @@
+import { isMetric } from "./tempSwitch";
+
 export const baseURL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/";
 export const API_KEY = "96A6976GH6KMUCQN6Y7QF8YRH"; // API key
-export let unitGroup = "us"; // Default unit group is US Imperial
 export let iconSet = "icons2"; // Return icon set 2 names
 
 export async function getLocation(locationTerm) {
+
+    let unitGroup = isMetric ? "metric" : "us"; // unitGroup couldn't be read if outside function; moved inside
+
     try {
         let response = await fetch(`${baseURL}${locationTerm}?unitGroup=${unitGroup}&iconSet=${iconSet}&key=${API_KEY}`);
         let locationData = await response.json();
