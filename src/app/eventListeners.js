@@ -21,5 +21,6 @@ export function switchUnit() {
         changeMetric(!isMetric);
         switchButton.textContent = isMetric ? "°C" : "°F";
         console.log(isMetric);
+        updatePage();
     })
 }
