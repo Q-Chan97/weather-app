@@ -1,7 +1,7 @@
 import { updatePage } from "./weatherUI";
 import { isMetric, changeMetric } from "./tempSwitch";
 
-export let currentSearch;
+export let currentSearch = "Tokyo"; // Default search is Tokyo on page load
 
 export function runSearch() {
     const searchButton = document.getElementById("search-button");
